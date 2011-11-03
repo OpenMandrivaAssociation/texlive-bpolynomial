@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /graphics/metapost/contrib/macros/bpolynomial
+# catalog-date 2008-08-17 01:00:50 +0200
+# catalog-license lppl
+# catalog-version 0.5
 Name:		texlive-bpolynomial
 Version:	0.5
 Release:	1
@@ -46,6 +52,7 @@ derivatives of polynomials can be calculated.
 %doc %{_texmfdistdir}/doc/metapost/bpolynomial/bpolynomial.pdf
 %doc %{_texmfdistdir}/doc/metapost/bpolynomial/bpolynomial.tex
 %doc %{_texmfdistdir}/doc/metapost/bpolynomial/examples.mp
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,3 +63,5 @@ derivatives of polynomials can be calculated.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metapost doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
