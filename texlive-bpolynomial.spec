@@ -6,7 +6,7 @@
 # catalog-version 0.5
 Name:		texlive-bpolynomial
 Version:	0.5
-Release:	6
+Release:	7
 Summary:	Drawing polynomial functions of up to order 3
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/bpolynomial
