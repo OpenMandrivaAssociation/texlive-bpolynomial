@@ -1,6 +1,6 @@
 Name:		texlive-bpolynomial
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Drawing polynomial functions of up to order 3
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/bpolynomial
