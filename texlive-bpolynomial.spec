@@ -1,49 +1,26 @@
-Name:		texlive-bpolynomial
-Version:	15878
-Release:	2
+%global tl_name bpolynomial
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.5
+Release:	%{tl_revision}.1
 Summary:	Drawing polynomial functions of up to order 3
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/bpolynomial
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bpolynomial.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bpolynomial.doc.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bpolynomial.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bpolynomial.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This MetaPost package helps plotting polynomial and root
-functions up to order three. The package provides macros to
-calculate Bezier curves exactly matching a given constant,
-linear, quadratic or cubic polynomial, or square or cubic root
-function. In addition, tangents on all functions and
-derivatives of polynomials can be calculated.
+This MetaPost package helps plotting polynomial and root functions up to
+order three. The package provides macros to calculate Bezier curves
+exactly matching a given constant, linear, quadratic or cubic
+polynomial, or square or cubic root function. In addition, tangents on
+all functions and derivatives of polynomials can be calculated.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/metapost/bpolynomial/bpolynomial.mp
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/CHANGES
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/README
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/TODO
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/bpolynomial.pdf
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/bpolynomial.tex
-%doc %{_texmfdistdir}/doc/metapost/bpolynomial/examples.mp
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar metapost doc %{buildroot}%{_texmfdistdir}
